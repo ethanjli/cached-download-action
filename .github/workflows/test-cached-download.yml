@@ -15,7 +15,7 @@ on:
 
 jobs:
   build:
-    name: Build test image
+    name: Download test image
     strategy:
       fail-fast: false
       matrix:

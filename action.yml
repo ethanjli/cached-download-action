@@ -29,7 +29,7 @@ runs:
         INPUT_DESTINATION: ${{ inputs.destination }}
       run: |
         parent_dir="$(dirname "$INPUT_DESTINATION")"
-        if ! mkdir -p "$parent_dir; then
+        if ! mkdir -p "$parent_dir"; then
           sudo mkdir -p "$parent_dir"
           sudo chown "$USER" "$parent_dir"
         fi
