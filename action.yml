@@ -45,7 +45,7 @@ runs:
         INPUT_DESTINATION: ${{ inputs.destination }}
       run: |
         if [ -f "$INPUT_DESTINATION" ]; then
-          echo "File $destination can be loaded from the cache!"
+          echo "File $INPUT_DESTINATION can be loaded from the cache!"
         else
           echo "Downloading $INPUT_URL to $INPUT_DESTINATION..."
           curl -o "$INPUT_DESTINATION" "$INPUT_URL"
