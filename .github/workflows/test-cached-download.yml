@@ -14,26 +14,30 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  download:
     name: Download test image
-    strategy:
-      fail-fast: false
-      matrix:
-        cache-key:
-          - ''
-          - base-image-2024-03-15-raspios-bookworm-arm64-lite
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download and cache RPI OS image
-        id: download
+      - name: Download and cache RPI OS image with implicit cache key
+        id: download-implicit
         uses: ./
         with:
           url: https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64-lite.img.xz
           destination: /tmp/downloads-cache/2024-03-15-raspios-bookworm-arm64-lite
-          cache-key: ${{ matrix.cache-key }}
 
       - name: Show the downloaded file
-        run: ls -l "${{ steps.download.outputs.destination }}"
+        run: ls -l "${{ steps.download-implicit.outputs.destination }}"
+
+      - name: Download and cache RPI OS image with explicit cache key
+        id: download-explicit
+        uses: ./
+        with:
+          url: https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64-lite.img.xz
+          destination: /tmp/downloads-cache/2024-03-15-raspios-bookworm-arm64-lite
+          cache-key: base-image-2024-03-15-raspios-bookworm-arm64-lite
+
+      - name: Show the downloaded file
+        run: ls -l "${{ steps.download-explicit.outputs.destination }}"
