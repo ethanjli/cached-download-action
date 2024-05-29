@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cache-key
+        cache-key:
           - ''
           - base-image-2024-03-15-raspios-bookworm-arm64-lite
     runs-on: ubuntu-latest
