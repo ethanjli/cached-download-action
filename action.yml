@@ -48,5 +48,5 @@ runs:
           echo "File $INPUT_DESTINATION can be loaded from the cache!"
         else
           echo "Downloading $INPUT_URL to $INPUT_DESTINATION..."
-          curl -o "$INPUT_DESTINATION" "$INPUT_URL"
+          curl -L -o "$INPUT_DESTINATION" "$INPUT_URL"
         fi
