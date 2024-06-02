@@ -16,7 +16,7 @@ workflow).
 - name: Download a Raspberry Pi OS image
   uses: ethanjli/cached-download-action@v0.1.0
   with:
-    url: wget https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64-lite.img.xz
+    url: https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64-lite.img.xz
     destination: /tmp/downloads-cache/2024-03-15-raspios-bookworm-arm64-lite.img.xz
 ```
 
@@ -26,7 +26,7 @@ workflow).
 - name: Download a Raspberry Pi OS image
   uses: ethanjli/cached-download-action@v0.1.0
   with:
-    url: wget https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64-lite.img.xz
+    url: https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64-lite.img.xz
     destination: /tmp/downloads-cache/2024-03-15-raspios-bookworm-arm64-lite.img.xz
     cache-key: base-image-2024-03-15-raspios-bookworm-arm64-lite
 ```
