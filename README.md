@@ -35,11 +35,12 @@ workflow).
 
 Inputs:
 
-| Input         | Allowed values | Required?       | Description                                                        |
-|---------------|----------------|-----------------|--------------------------------------------------------------------|
-| `url`         | HTTP(S) url    | yes             | URL of the file to download.                                       |
-| `destination` | file path      | yes             | Path to load the cached file from, or save the downloaded file to. |
-| `cache-key`   | string         | no (default ``) | An explicit key for a cache entry.                                 |
+| Input                     | Allowed values | Required?            | Description                                                                                        |
+|---------------------------|----------------|----------------------|----------------------------------------------------------------------------------------------------|
+| `url`                     | HTTP(S) url    | yes                  | URL of the file to download.                                                                       |
+| `destination`             | file path      | yes                  | Path to load the cached file from, or save the downloaded file to.                                 |
+| `cache-key`               | string         | no (default ``)      | An explicit key for a cache entry.                                                                 |
+| `enable-cross-os-archive` | boolean        | no (default `false`) | See `enableCrossOsArchive` input in [actions/cache](https://github.com/marketplace/actions/cache). |
 
 - If `cache-key` is empty, then the `url` input will be used as the cache key instead.
 

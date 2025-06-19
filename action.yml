@@ -15,6 +15,12 @@ inputs:
   cache-key:
     description: An explicit key for a cache entry
     required: false
+  enable-cross-os-archive:
+    description: >
+      An optional boolean when enabled, allows Windows runners to save or restore caches that can be
+      restored or saved respectively on other platforms
+    required: false
+    default: "false"
 
 outputs:
   destination:
@@ -38,6 +44,7 @@ runs:
       with:
         key: ${{ inputs.cache-key || inputs.url }}
         path: ${{ inputs.destination }}
+        enableCrossOsArchive: ${{ inputs.enable-cross-os-archive }}
 
     - shell: bash
       env:
